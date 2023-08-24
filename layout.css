@@ -1,0 +1,129 @@
+:root{
+  /*Colors*/
+  --prim: 30;
+  --sec: calc(var(--prim) - 25);
+
+  --primary: hsl(var(--prim), 60%, 40%);
+  --primary-light: hsl(var(--prim), 60%, 70%);
+  --primary-dark: hsl(var(--prim), 60%, 20%);
+  --white: hsl(var(--prim), 30%, 85%);
+
+  --secondary: hsl(var(--sec), 60%, 40%);
+  --secondary-light: hsl(10, 30%, 90%);
+  --secondary-dark: hsl(10, 60%, 20%);
+
+  --big: 300px;
+  --small: 200px;
+}
+
+.container-margin{
+  margin-inline: 5%;
+  max-width: 75rem; /*Nao permite max-width*/
+}
+
+.container-padding{
+  /* padding-inline: 5%; */
+  /* max-width: 75rem; */ /*Nao permite max-width. A largura do elemento conta com o padding dele. Teriamos que definir a max-width com um calc nmo padding */
+  padding-inline: max(5%, (100% - 75rem) / 2); /*A conta aqui é: quero que o padding seja 5% ou que seja o que sobrar da largura máxima menos o tamanho máximo que quero. E divido por dois, um padding pra cada lado.*/
+}  
+
+.big-container{
+  width: var(--big);
+  margin-inline: auto;
+}
+
+.small-container{
+  width: var(--small);
+  margin-inline: auto;
+}
+
+.section-containers{
+  padding-block: 8vh;
+}
+
+.section-containers h2{
+  text-align: center;
+}
+
+.section-containers :is(h2, p:not(:last-child)){
+  margin-bottom: 1rem
+}
+
+.bg{
+  background-color: var(--primary-dark);
+}
+
+.bg--contrast{
+  background-color: var(--secondary-dark);
+}
+
+.big-container.border{
+  border: 3px solid var(--secondary-light);
+}
+
+.bg-degrade{
+  background-image: linear-gradient(45deg, var(--secondary), var(--primary));
+}
+
+.bg-degrade > div{
+  padding-block: 4vh; /*Menor que o do elemento pai. Nao é regra, mas poderia confundir a hierarquia*/
+  /*Quando tem cor, ou borda, é necessário ter padding inferior*/
+}
+
+.bg-degrade > .bg{
+  margin-bottom: 4vh;
+}
+
+.bg-degrade > .padding{
+  padding-inline: 5%;
+}
+
+body{
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/*
+AUMENTANDO EM BREAKPOINT
+*/
+@media (min-width: 45em){
+  :root{
+    --big: 600px;
+    --small: 400px;
+  }
+}
+
+
+
+/*
+Aumentando de forma fluida
+*/
+:root{
+  --big: 90%;
+  --small: 60%;
+}
+
+/*
+Importancia de max-width
+*/
+.big-container{
+  max-width: 1200px;
+}
+
+.small-container{
+  max-width: 800px;
+}
+
+ /*Por que usar px se podemos usar rem nesse caso?*/
+.big-container{
+  max-width: 75rem;
+}
+
+.small-container{
+  max-width: 50rem;
+}
+
+ /*
+ Isso pode gerar overflow? O que acontece se a fonte base for muito grande?
+ O width ja segura
+ */

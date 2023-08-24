@@ -1,0 +1,79 @@
+.big-container.cards{
+  padding-block: var(--fs-4);
+}
+
+.big-container.cards h2{
+  margin-bottom: 1em;
+  
+  text-align: center;
+}
+
+.card h3{
+  font-size: var(--fs-2);
+  font-weight: 700;
+}
+
+.card p{
+  font-size: var(--fs-2);
+}
+
+.card a{
+  display: inline-block; /*A importancia do inline-block aqui*/
+  
+  padding: .5em 1em;
+
+  background-color: var(--secondary);
+
+  font-size: var(--fs-1);
+}
+
+.card > * + *{
+  margin-top: 1em;
+}
+
+.card{
+  padding: var(--fs-2);
+  
+  border: 2px solid var(--secondary);
+
+  text-align: center;
+}
+
+.card{
+  padding: 1rem;
+}
+
+/*
+TAMANHO DOS ELEMENTOS DEVE VARIAR CONFORME O CONTAINER
+*/
+@media (min-width: 75em){
+  .card{
+    width: 30%;
+    display: inline-block;
+  }
+
+  /*Com flex*/
+  .cards > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: .4vw; /*Queria 1%, mas % nao funciona aqui. Fiz 80vw (mais ou menos a largura da coluna) * 1% (quanto sobra quando tiramos os cards que sao 33%) / 2 (quantidade de gaps)*/
+  }
+
+  .card{
+    width: 33%;
+  }
+
+}
+
+.cards > div{
+  border: 4px solid var(--white);
+}
+
+/* .cards > div{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+} */
+
+
